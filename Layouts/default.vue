@@ -1,26 +1,34 @@
 <template>
-  <section>
-   <div class="container">
-      <Header />
-    <Nuxt />
+  <v-app dark>
+    <!--v-if="$route.name!=='login'"-->
+    <Header />
+    <v-main>
+      <nuxt />
+    </v-main>
     <Footer />
-   </div>
-  </section>
+  </v-app>
 </template>
-<style scoped>
-section {
 
-  background: rgb(42, 83, 42);
-  background: radial-gradient(
-    circle,
-    rgb(53, 105, 53) 0%,
-    rgba(77, 147, 76, 1) 100%
-  );
+<script>
+export default {
+  head() {
+    return {
+      title: "Apukasoft",
+      meta: [
+        {
+          hid: "description",
+          name: "NuxtJs UI kit",
+          content: "Empresa de tecnologia"
+        }
+      ]
+    };
+  },
+  components: {
+    Header: () => import("@/layouts/sections/Header"),
+    Footer: () => import("@/layouts/sections/Footer")
+  },
+  methods: {}
+};
+</script>
 
-}
-.container{
-display: block;
-overflow: hidden;
-  margin: 0 auto;
-}
-</style>
+<style></style>
